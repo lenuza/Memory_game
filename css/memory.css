@@ -1,3 +1,148 @@
 body {
-  background-color: pink;
+    width: 80vw;
+    height: 90vh;
+    margin: 50px auto;
+    font-family: "Alegreya Sans SC", sans-serif;
+}
+
+header {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bolder;
+}
+
+main {
+  margin: auto;
+  display: flex; /* needed to align the gird to the center of the page*/
+  align-content: center;
+}
+
+/*Grid*/
+.game {
+    font-size: 2.5em;
+    display: grid;
+    margin: auto;
+    grid-gap: 5px;
+    grid-template-columns: repeat( 4, 150px);
+    grid-template-rows: repeat( 4, 150px);
+    grid-template-areas: "one two three four"
+                         "five six seven eight"
+                         "nine ten eleven twelve"
+                         "thirteen fourteen fifteen sixteen";
+}
+/*Grid elements*/
+#one {
+    position: relative;
+    border: 2px solid #000;
+    grid-area: one;
+    background-color: pink;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0.7em 0 0 0;
+    z-index: 1;
+    box-sizing: border-box;
+
+}
+
+#purple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background-color: purple;
+  z-index: 0;
+  box-sizing: border-box;
+}
+
+#two {
+    grid-area: two;
+    border: 2px solid #000;
+    margin:0;
+}
+
+#three {
+    grid-area: three;
+    border: 2px solid #000;
+    margin:0;
+}
+
+#four {
+    grid-area: four;
+    border: 2px solid #000;
+    margin:0;
+}
+
+#five {
+    grid-area: five;
+    border: 2px solid #000;
+    margin:0;
+}
+
+#six {
+    grid-area: six;
+    border: 2px solid #000;
+    margin:0;
+}
+
+#seven {
+    grid-area: seven;
+    border: 2px solid #000;
+    margin:0;
+}
+
+#eight {
+    grid-area: eight;
+    border: 2px solid #000;
+    margin:0;
+}
+
+#nine {
+    grid-area: nine;
+    border: 2px solid #000;
+    margin:0;
+}
+
+#ten {
+    grid-area: ten;
+    border: 2px solid #000;
+    margin:0;
+}
+
+#eleven {
+    grid-area: eleven;
+    border: 2px solid #000;
+    margin:0;
+}
+
+#twelve {
+    grid-area: twelve;
+    border: 2px solid #000;
+    margin:0;
+}
+
+#thirteen {
+    grid-area: thirteen;
+    border: 2px solid #000;
+    margin:0;
+}
+
+#fourteen {
+    grid-area: fourteen;
+    border: 2px solid #000;
+    margin:0;
+}
+
+#fifteen {
+    grid-area: fifteen;
+    border: 2px solid #000;
+    margin:0;
+}
+
+#sixteen {
+    grid-area: sixteen;
+    border: 2px solid #000;
+    margin:0;
 }
