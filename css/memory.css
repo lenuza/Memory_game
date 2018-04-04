@@ -34,27 +34,7 @@ main {
 #one {
     position: relative;
     border: 2px solid #000;
-    grid-area: one;
-    background-color: pink;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 1.5em;
     margin: 0;
-    padding: 0.7em 0 0 0;
-    z-index: 1;
-    box-sizing: border-box;
-
-}
-
-#purple {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 150px;
-  height: 150px;
-  background-color: purple;
-  z-index: 0;
-  box-sizing: border-box;
 }
 
 #two {
@@ -145,4 +125,26 @@ main {
     grid-area: sixteen;
     border: 2px solid #000;
     margin:0;
+}
+/*CardFront*/
+
+.card1{
+font-family: 'FontAwesome';
+content: "f13d";
+color: black;
+text-align: center;
+vertical-align: middle;
+font-size: 1.5em;
+margin: 0;
+padding: 0.7em 0 0 0;
+}
+
+/*CardBack*/
+.back {
+   content: none;
+   border: 5px solid #d0d;
+   background-color: purple;
+   color: purple;
+   margin:0;
+   z-index: 0;
 }
