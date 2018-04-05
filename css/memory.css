@@ -37,110 +37,150 @@ main {
     position: relative;
     border: 2px solid #000;
     margin: 0;
+    position: relative;
 }
 
 #two {
     grid-area: two;
     border: 2px solid #000;
     margin:0;
+    position: relative;
 }
 
 #three {
     grid-area: three;
     border: 2px solid #000;
     margin:0;
+    position: relative;
 }
 
 #four {
     grid-area: four;
     border: 2px solid #000;
     margin:0;
+    position: relative;
 }
 
 #five {
     grid-area: five;
     border: 2px solid #000;
     margin:0;
+    position: relative;
 }
 
 #six {
     grid-area: six;
     border: 2px solid #000;
     margin:0;
+    position: relative;
 }
 
 #seven {
     grid-area: seven;
     border: 2px solid #000;
     margin:0;
+    position: relative;
 }
 
 #eight {
     grid-area: eight;
     border: 2px solid #000;
     margin:0;
+    position: relative;
 }
 
 #nine {
     grid-area: nine;
     border: 2px solid #000;
     margin:0;
+    position: relative;
 }
 
 #ten {
     grid-area: ten;
     border: 2px solid #000;
     margin:0;
+    position: relative;
 }
 
 #eleven {
     grid-area: eleven;
     border: 2px solid #000;
     margin:0;
+    position: relative;
 }
 
 #twelve {
     grid-area: twelve;
     border: 2px solid #000;
     margin:0;
+    position: relative;
 }
 
 #thirteen {
     grid-area: thirteen;
     border: 2px solid #000;
     margin:0;
+    position: relative;
 }
 
 #fourteen {
     grid-area: fourteen;
     border: 2px solid #000;
     margin:0;
+    position: relative;
 }
 
 #fifteen {
     grid-area: fifteen;
     border: 2px solid #000;
     margin:0;
+    position: relative;
 }
 
 #sixteen {
     grid-area: sixteen;
     border: 2px solid #000;
     margin:0;
+    position: relative;
 }
 /*CardFront*/
 
-.card1{
-    margin: 0;
-    padding: 0;
+.front {
+    box-sizing: border-box;
+    border: 5px solid #d0d;
+    background-color: grey;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: perspective(500px) rotateY(180deg);
+    transition: 1s linear 0s;
+    backface-visibility: hidden;
 }
 
 /*CardBack*/
 .back {
-   content: none;
+   box-sizing: border-box;
    border: 5px solid #d0d;
    background-color: purple;
-   color: purple;
-   margin:0;
-   z-index: 0;
+   text-align: center;
+   width: 150px;
+   height: 150px;
+   position: absolute;
+   top: 0;
+   left: 0;
+   transform: perspective(500px) rotateY(0deg);
+   transition: 1s linear 0s;
+   backface-visibility: hidden;
+}
+
+#one:hover > .front {
+  transform: perspective(500px) rotateY(0deg);
+}
+
+#one:hover > .back {
+  transform: perspective(500px) rotateY(-180deg);
 }
