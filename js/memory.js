@@ -9,6 +9,6 @@
    const cardFlip = document.getElementById("one");
 
    cardFlip.addEventListener("click", function() {
-
-         cardFlip.classList.add("card1");
+     const cardFace = document.getElementById("card1");
+         cardFace.style.display="block";
 })
