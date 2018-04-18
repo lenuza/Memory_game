@@ -16,7 +16,6 @@
                   "fas fa-cloud",
                   "fas fa-coffee",
                   "far fa-life-ring"];
-
   let win = [];
   let cardMatch = [];
   const newGame = document.getElementById("newGame");
@@ -103,25 +102,22 @@ newGame.addEventListener( "click", function() {
 
 /* Comparing cards*/
 
-   const halfMatch = frontSides[i].getAttribute("class");
+   const halfMatch = i;
    cardMatch.push(halfMatch);
-   const click = i;
-   console.log(click);
-
 
        if ( cardMatch.length == 2) {
 
-          if( cardMatch[0] != cardMatch[1]) {
-
-           for ( let i = 0; i < backSides.length; i++) {
-              backSides[i].style.transform = "rotateY(0deg)";
-               frontSides[i].style.transform = "rotateY(-180deg)";
+          if(frontSides[cardMatch[0]].getAttribute("class") !== frontSides[cardMatch[1]].getAttribute("class"))
+ {
+               backSides[cardMatch[0]].style.transform = "rotateY(0deg)";
+               frontSides[cardMatch[0]].style.transform = "rotateY(-180deg)";
+               backSides[cardMatch[1]].style.transform = "rotateY(0deg)";
+               frontSides[cardMatch[1]].style.transform = "rotateY(-180deg)";
                console.log("nah");
-             }
-          cardMatch = [];
+               cardMatch = [];
       }
 
-        else if (cardMatch[0] == cardMatch[1]) {
+        else if (frontSides[cardMatch[0]].getAttribute("class") === frontSides[cardMatch[1]].getAttribute("class")) {
            win.push(halfMatch);
            cardMatch = [];
         //   backSides[i].classList.add("hide");
