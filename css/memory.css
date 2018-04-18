@@ -3,20 +3,122 @@ body {
     height: 85vh;
     margin: 20px auto;
     font-family: "Alegreya Sans SC", sans-serif;
-    background: radial-gradient(circle, grey, pink, purple);
+    background: radial-gradient(circle, #808080, #40e0d0, #008080);
 }
 
 header {
   margin-top: 0;
   text-align: center;
   font-size: 3em;
+  color: #281111;
   font-weight: bolder;
+
+}
+nav {
+  float: right;
+  text-align: center;
+  font-size: 3em;
+  color: #281111;
+  font-weight: bolder;
+}
+
+#newGame {
+  border: 5px solid #fff5ee;
+  border-radius: 25px;
+  background-color: #20b2aa;
+  width: auto;
+  height: 50px;
+  color: #281111;
+  font-weight: bolder;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: -3px -5px 5px 1px rgba(230, 230, 230, 0.5) inset;
+}
+
+button::-moz-focus-inner {
+  border: 0;
 }
 
 main {
   margin: auto;
   display: flex; /* needed to align the gird to the center of the page*/
   align-content: center;
+}
+
+/* Modal message*/
+#modal {
+  box-sizing: border-box;
+  width: 200px;
+  height: 150px;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  text-align: center;
+  font-size: 2.5em;
+  color: #281111;
+  font-weight: bolder;
+  border: 5px solid #20b2aa;
+  border-radius: 25px;
+  background-color: #8fbc8F;
+  display: none;
+  z-index: 1;
+}
+
+.show {
+  transform: rotateY( 0deg);
+  transition: 0s linear 0s;/*there must be an unit after the 0 here*/
+  backface-visibility: hidden;
+}
+
+.hide {
+  transform: rotateY( -180deg);
+  transition: 0s linear 0s;/*there must be an unit after the 0 here*/
+  backface-visibility: hidden;
+}
+
+/*CardFront*/
+.front {
+    box-sizing: border-box;
+    border: 5px solid #20b2aa;
+    border-radius: 25px;
+    background-color: #8fbc8F;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0.7em 0 0 0;
+    color: #281111;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+    transition: 0s linear 0s;/*there must be an unit after the 0 here*/
+    backface-visibility: hidden;/* z-index greater numbers come on top*/
+}
+
+/*CardBack*/
+.back {
+   box-sizing: border-box;
+   border: 5px solid #fff5ee;
+   border-radius: 25px;
+   background-color: #20b2aa;
+   text-align: center;
+   width: 150px;
+   height: 150px;
+   position: absolute;
+   top: 0;
+   left: 0;
+   transform: rotateY(0deg);/*there must be an unit after the 0 here*/
+   transition: 0s linear 0s; /*there must be an unit after the 0 here*/
+   backface-visibility: hidden;
+   cursor: pointer;
+}
+
+.back:hover {
+  border: 5px solid #008080;
+  background-color: #fff5ee;
 }
 
 /*Grid*/
@@ -35,152 +137,96 @@ main {
 /*Grid elements*/
 #one {
     position: relative;
-    border: 2px solid #000;
     margin: 0;
     position: relative;
 }
 
 #two {
     grid-area: two;
-    border: 2px solid #000;
     margin:0;
     position: relative;
 }
 
 #three {
     grid-area: three;
-    border: 2px solid #000;
     margin:0;
     position: relative;
 }
 
 #four {
     grid-area: four;
-    border: 2px solid #000;
     margin:0;
     position: relative;
 }
 
 #five {
     grid-area: five;
-    border: 2px solid #000;
     margin:0;
     position: relative;
 }
 
 #six {
     grid-area: six;
-    border: 2px solid #000;
     margin:0;
     position: relative;
 }
 
 #seven {
     grid-area: seven;
-    border: 2px solid #000;
     margin:0;
     position: relative;
 }
 
 #eight {
     grid-area: eight;
-    border: 2px solid #000;
     margin:0;
     position: relative;
 }
 
 #nine {
     grid-area: nine;
-    border: 2px solid #000;
     margin:0;
     position: relative;
 }
 
 #ten {
     grid-area: ten;
-    border: 2px solid #000;
     margin:0;
     position: relative;
 }
 
 #eleven {
     grid-area: eleven;
-    border: 2px solid #000;
     margin:0;
     position: relative;
 }
 
 #twelve {
     grid-area: twelve;
-    border: 2px solid #000;
     margin:0;
     position: relative;
 }
 
 #thirteen {
     grid-area: thirteen;
-    border: 2px solid #000;
     margin:0;
     position: relative;
 }
 
 #fourteen {
     grid-area: fourteen;
-    border: 2px solid #000;
     margin:0;
     position: relative;
 }
 
 #fifteen {
     grid-area: fifteen;
-    border: 2px solid #000;
     margin:0;
     position: relative;
 }
 
 #sixteen {
     grid-area: sixteen;
-    border: 2px solid #000;
     margin:0;
     position: relative;
-}
-/*CardFront*/
-
-.front {
-    box-sizing: border-box;
-    border: 5px solid #d0d;
-    background-color: grey;
-    text-align: center;
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: perspective(500px) rotateY(180deg);
-    transition: 1s linear 0s;
-    backface-visibility: hidden;
-}
-
-/*CardBack*/
-.back {
-   box-sizing: border-box;
-   border: 5px solid #d0d;
-   background-color: purple;
-   text-align: center;
-   width: 150px;
-   height: 150px;
-   position: absolute;
-   top: 0;
-   left: 0;
-   transform: perspective(500px) rotateY(0deg);
-   transition: 1s linear 0s;
-   backface-visibility: hidden;
-}
-
-#one:hover > .front {
-  transform: perspective(500px) rotateY(0deg);
-}
-
-#one:hover > .back {
-  transform: perspective(500px) rotateY(-180deg);
 }
