@@ -68,7 +68,7 @@ button::-moz-focus-inner {
 
 #moves {
   box-sizing: border-box;
-  width: 110px;
+  width: 120px;
   height: 60px;
   margin: auto;
   padding-top: 10px;
