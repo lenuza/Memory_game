@@ -1,119 +1,160 @@
+html .viewport {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    width: 80vw;
-    height: 85vh;
-    margin: 20px auto;
-    font-family: "Alegreya Sans SC", sans-serif;
-    background: radial-gradient(circle, #808080, #40e0d0, #008080);
+  width: 90%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  font-family: "Alegreya Sans SC", sans-serif;
+  background: radial-gradient(circle, #808080, #40e0d0, #008080);
 }
 
 header {
-  margin-top: 0;
+  width: 100%;
+  margin: 15px auto;
   text-align: center;
-  font-size: 3em;
+  font-size: 2.5em;
   color: #281111;
   font-weight: bolder;
-
 }
+
 nav {
-  float: right;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 5px;
+  margin-bottom: 5px;
   text-align: center;
-  font-size: 3em;
   color: #281111;
   font-weight: bolder;
 }
 
-#newGame {
-  border: 5px solid #fff5ee;
-  border-radius: 25px;
+/*New game button*/
+button::-moz-focus-inner {
+  border: 0; /*gets rid of the dotted otline mozila gives to buttons*/
+}
+
+/* Restart button, scores, timer styles*/
+.newGame {
+  border: 1px solid #fff5ee;
+  border-radius: 5px;
   background-color: #20b2aa;
-  width: auto;
-  height: 50px;
+  width: 60px;
+  height: 60px;
+  margin: auto;
+  padding: 5px;
   color: #281111;
-  font-weight: bolder;
+  font-size: 1.2em;
   text-decoration: none;
   cursor: pointer;
   box-shadow: -3px -5px 5px 1px rgba(230, 230, 230, 0.5) inset;
 }
 
-button::-moz-focus-inner {
-  border: 0;
+#rating {
+  box-sizing: border-box;
+  display: flex;
+  width: 70px;
+  height: 60px;
+  margin: auto 10px;
+  padding: 10px 5px;
+  font-size: 1.5em;
+  justify-content: center;
+}
+
+#moves {
+  box-sizing: border-box;
+  width: 110px;
+  height: 60px;
+  margin: auto;
+  padding-top: 10px;
+  font-size: 1.5em;
+}
+
+#timer {
+  box-sizing: border-box;
+  width: 80px;
+  height: 60px;
+  margin: auto;
+  padding-top: 10px;
+  font-size: 1.5em;
 }
 
 main {
+  width: 100%;
   margin: auto;
-  display: flex; /* needed to align the gird to the center of the page*/
+  display: flex; /*  aligns the gird to the center of the page*/
   align-content: center;
+  position: relative;
 }
 
-/* Modal message*/
+/* Modal win message*/
 #modal {
-  box-sizing: border-box;
-  width: 200px;
-  height: 150px;
+  width: 205px;
+  height: 170px;
   position: absolute;
-  top: 40%;
-  left: 40%;
+  top: 22%;
+  left: 22%;
   text-align: center;
-  font-size: 2.5em;
+  font-size: 1.5em;
   color: #281111;
   font-weight: bolder;
   border: 5px solid #20b2aa;
-  border-radius: 25px;
+  border-radius: 5px;
   background-color: #8fbc8F;
   display: none;
   z-index: 1;
-}
-
-.show {
-  transform: rotateY( 0deg);
-  transition: 0s linear 0s;/*there must be an unit after the 0 here*/
-  backface-visibility: hidden;
-}
-
-.hide {
-  transform: rotateY( -180deg);
-  transition: 0s linear 0s;/*there must be an unit after the 0 here*/
-  backface-visibility: hidden;
+  box-shadow: -3px -5px 5px 1px rgba(230, 230, 230, 0.5) inset;
+  text-shadow: 3px 2px rgba(230, 230, 230, 0.5);
 }
 
 /*CardFront*/
 .front {
-    box-sizing: border-box;
-    border: 5px solid #20b2aa;
-    border-radius: 25px;
-    background-color: #8fbc8F;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 1.5em;
-    margin: 0;
-    padding: 0.7em 0 0 0;
-    color: #281111;
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: rotateY(180deg);
-    transition: 0s linear 0s;/*there must be an unit after the 0 here*/
-    backface-visibility: hidden;/* z-index greater numbers come on top*/
+  box-sizing: border-box;
+  border: 2px solid #20b2aa;
+  border-radius: 5px;
+  background-color: #8fbc8F;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.5em;
+  margin: 0;
+  padding: 0.6em 0 0 0;
+  color: #281111;
+  width: 89px;
+  height: 89px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+  transition: 0s linear 0s;  /*there must be an unit after the 0 here*/
+  backface-visibility: hidden;
 }
 
 /*CardBack*/
 .back {
-   box-sizing: border-box;
-   border: 5px solid #fff5ee;
-   border-radius: 25px;
-   background-color: #20b2aa;
-   text-align: center;
-   width: 150px;
-   height: 150px;
-   position: absolute;
-   top: 0;
-   left: 0;
-   transform: rotateY(0deg);/*there must be an unit after the 0 here*/
-   transition: 0s linear 0s; /*there must be an unit after the 0 here*/
-   backface-visibility: hidden;
-   cursor: pointer;
+  box-sizing: border-box;
+  border: 2px solid #fff5ee;
+  border-radius: 5px;
+  background-color: #20b2aa;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.3em;
+  margin: 0;
+  padding: 0.6em 0 0 0;
+  width: 89px;
+  height: 89px;
+  color: rgba(40, 17, 17, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(0deg);
+  transition: 0s linear 0s;  /*there must be an unit after the 0 here*/
+  backface-visibility: hidden;
+  cursor: pointer;
 }
 
 .back:hover {
@@ -121,112 +162,327 @@ main {
   background-color: #fff5ee;
 }
 
-/*Grid*/
-.game {
-    font-size: 2.5em;
-    display: grid;
-    margin: auto;
-    grid-gap: 5px;
-    grid-template-columns: repeat( 4, 150px);
-    grid-template-rows: repeat( 4, 150px);
-    grid-template-areas: "one two three four"
-                         "five six seven eight"
-                         "nine ten eleven twelve"
-                         "thirteen fourteen fifteen sixteen";
+/*Grid parameters*/
+#game {
+  font-size: 1.5em;
+  display: grid;
+  margin: auto;
+  grid-gap: 1px;
+  grid-template-columns: repeat( 4, 89px);
+  grid-template-rows: repeat( 4, 89px);
+  grid-template-areas: "one two three four"
+                      "five six seven eight"
+                      "nine ten eleven twelve"
+                      "thirteen fourteen fifteen sixteen";
 }
+
 /*Grid elements*/
 #one {
-    position: relative;
-    margin: 0;
-    position: relative;
+  position: relative;
+  margin: 0;
+  position: relative;
 }
 
 #two {
-    grid-area: two;
-    margin:0;
-    position: relative;
+  grid-area: two;
+  margin: 0;
+  position: relative;
 }
 
 #three {
-    grid-area: three;
-    margin:0;
-    position: relative;
+  grid-area: three;
+  margin: 0;
+  position: relative;
 }
 
 #four {
-    grid-area: four;
-    margin:0;
-    position: relative;
+  grid-area: four;
+  margin: 0;
+  position: relative;
 }
 
 #five {
-    grid-area: five;
-    margin:0;
-    position: relative;
+  grid-area: five;
+  margin: 0;
+  position: relative;
 }
 
 #six {
-    grid-area: six;
-    margin:0;
-    position: relative;
+  grid-area: six;
+  margin: 0;
+  position: relative;
 }
 
 #seven {
-    grid-area: seven;
-    margin:0;
-    position: relative;
+  grid-area: seven;
+  margin: 0;
+  position: relative;
 }
 
 #eight {
-    grid-area: eight;
-    margin:0;
-    position: relative;
+  grid-area: eight;
+  margin: 0;
+  position: relative;
 }
 
 #nine {
-    grid-area: nine;
-    margin:0;
-    position: relative;
+  grid-area: nine;
+  margin: 0;
+  position: relative;
 }
 
 #ten {
-    grid-area: ten;
-    margin:0;
-    position: relative;
+  grid-area: ten;
+  margin: 0;
+  position: relative;
 }
 
 #eleven {
-    grid-area: eleven;
-    margin:0;
-    position: relative;
+  grid-area: eleven;
+  margin: 0;
+  position: relative;
 }
 
 #twelve {
-    grid-area: twelve;
-    margin:0;
-    position: relative;
+  grid-area: twelve;
+  margin: 0;
+  position: relative;
 }
 
 #thirteen {
-    grid-area: thirteen;
-    margin:0;
-    position: relative;
+  grid-area: thirteen;
+  margin: 0;
+  position: relative;
 }
 
 #fourteen {
-    grid-area: fourteen;
-    margin:0;
-    position: relative;
+  grid-area: fourteen;
+  margin: 0;
+  position: relative;
 }
 
 #fifteen {
-    grid-area: fifteen;
-    margin:0;
-    position: relative;
+  grid-area: fifteen;
+  margin: 0;
+  position: relative;
 }
 
 #sixteen {
-    grid-area: sixteen;
-    margin:0;
-    position: relative;
+  grid-area: sixteen;
+  margin: 0;
+  position: relative;
+}
+
+/*Media queries*/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+
+/* Modal win message*/
+#modal {
+  width: 350px;
+  height: 200px;
+  top: 35%;
+  left: 20%;
+}
+
+/*CardFront*/
+.front {
+  width: 150px;
+  height: 150px;
+}
+
+/*CardBack*/
+.back {
+  width: 150px;
+  height: 150px;
+}
+
+#game {
+  font-size: 2.5em;
+  display: grid;
+  margin: auto;
+  grid-gap: 0;
+  grid-template-columns: repeat( 4, 150px);
+  grid-template-rows: repeat( 4, 150px);
+  grid-template-areas: "one two three four"
+                      "five six seven eight"
+                      "nine ten eleven twelve"
+                      "thirteen fourteen fifteen sixteen";
+  }
+
+}
+
+@media screen and (min-width: 901px) and (max-width: 999px) {
+
+nav {
+  width: 120px;
+  flex-direction: column;
+  float: right;
+  margin: auto;
+}
+
+.newGame {
+  width: 80px;
+  height: 60px;
+  margin: auto;
+  padding: 5px;
+}
+
+#rating {
+  width: 120px;
+  height: 60px;
+  margin: auto;
+  padding-top: 10px;
+  font-size: 1em;
+}
+
+#moves {
+  width: 120px;
+  height: 60px;
+  margin: auto;
+}
+
+#timer {
+  width: 120px;
+  height: 60px;
+  margin: auto;
+}
+
+main {
+  box-sizing: border-box;
+  width: 600px;
+}
+
+/*Modal win message*/
+#modal {
+  width: 350px;
+  height: 200px;
+  top: 35%;
+  left: 20%;
+}
+
+/*CardFront*/
+.front {
+  width: 100px;
+  height: 100px;
+  font-size: 1.1em;
+}
+
+/*CardBack*/
+.back {
+  width: 100px;
+  height: 100px;
+  font-size: 1em;
+}
+
+/* Grid parameters*/
+#game {
+  font-size: 2.5em;
+  display: grid;
+  margin: auto;
+  margin-right: 10px;
+  grid-gap: 0;
+  grid-template-columns: repeat( 6, 100px);
+  grid-template-rows: repeat( 3, 100px);
+  grid-template-areas: "  one . two three . four "
+                      " five  six seven eight nine ten"
+                      " eleven twelve thirteen fourteen fifteen sixteen";
+  }
+
+}
+
+@media screen and (min-width: 1000px) {
+body {
+   width: 100%;
+}
+
+header {
+  margin: 0;
+}
+
+nav {
+  justify-content: space-between;
+  width: 550px;
+  height: 60px;
+  margin: auto;
+}
+
+.newGame {
+  border: 2px solid #fff5ee;
+  border-radius: 25px;
+  width: 80px;
+  height: 50px;
+  margin: 0 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 1em;
+}
+
+#rating {
+  width: 80px;
+  height: 50px;
+  margin: 0 5px;
+  margin-bottom: 10px;
+  padding: 10px 5px;
+}
+
+#moves {
+  width: 120px;
+  height: 50px;
+  margin: 0 5px;
+  margin-bottom: 10px;
+  padding: 10px 0;
+}
+
+#timer {
+  width: 120px;
+  height: 50px;
+  margin: 0 5px;
+  margin-bottom: 10px;
+  padding: 10px 0;
+}
+
+
+/* Modal win message*/
+#modal {
+  width: 400px;
+  height: 350px;
+  position: absolute;
+  top: 20%;
+  left: 37%;
+  font-size: 2.2em;
+  border-radius: 25px;
+}
+
+/*CardFront*/
+.front {
+  border: 5px solid #20b2aa;
+  border-radius: 25px;
+  padding: 0.7em 0 0 0;
+  width: 150px;
+  height: 150px;
+}
+
+/*CardBack*/
+.back {
+  border: 5px solid #fff5ee;
+  border-radius: 25px;
+  padding: 0.7em 0 0 0;
+  width: 150px;
+  height: 150px;
+}
+
+/*Grid parameters*/
+#game {
+  font-size: 2.5em;
+  display: grid;
+  margin: auto;
+  grid-gap: 5px;
+  grid-template-columns: repeat( 4, 150px);
+  grid-template-rows: repeat( 4, 150px);
+  grid-template-areas: "one two three four"
+                        "five six seven eight"
+                        "nine ten eleven twelve"
+                        "thirteen fourteen fifteen sixteen";
+ }
+
 }
