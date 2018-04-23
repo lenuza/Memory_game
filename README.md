@@ -17,4 +17,4 @@ The app is built with the following code dependencies:
 * Font Awesome
 
 ------------
-Disclamer the shuffle algorithm used in this game is not my work, it is  based on the  Durstenfeld Shuffle algorithm and was taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array posted by Laurens Holst
+__Disclamer:__ The shuffle algorithm used in this game is not my work, it is  based on the  Durstenfeld Shuffle algorithm and was taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array posted by Laurens Holst
