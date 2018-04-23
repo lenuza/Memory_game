@@ -6,8 +6,8 @@ html .viewport {
 }
 
 body {
-  width: 90%;
-  height: auto;
+  width: 90vw;
+  height: 100vh;
   padding: 0;
   margin: 0;
   font-family: "Alegreya Sans SC", sans-serif;
@@ -390,7 +390,7 @@ main {
 
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1301px) and (max-width: 1499px)  {
 body {
    width: 100%;
 }
@@ -400,47 +400,49 @@ header {
 }
 
 nav {
-  justify-content: space-between;
-  width: 550px;
-  height: 60px;
+  width: 120px;
+  flex-direction: column;
+  float: right;
   margin: auto;
+  margin-right: 250px;
+  padding-top: 10px;
+}
+
+main {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  width: 495px;
+
 }
 
 .newGame {
-  border: 2px solid #fff5ee;
-  border-radius: 25px;
+  border: 3px solid #fff5ee;
   width: 80px;
-  height: 50px;
-  margin: 0 5px;
-  margin-bottom: 10px;
+  height: 60px;
+  margin: auto;
   padding: 5px;
-  font-size: 1em;
 }
 
 #rating {
-  width: 80px;
-  height: 50px;
-  margin: 0 5px;
-  margin-bottom: 10px;
-  padding: 10px 5px;
+  width: 120px;
+  height: 60px;
+  margin: auto;
+  padding-top: 10px;
+  font-size: 1em;
 }
 
 #moves {
   width: 120px;
-  height: 50px;
-  margin: 0 5px;
-  margin-bottom: 10px;
-  padding: 10px 0;
+  height: 60px;
+  margin: auto;
 }
 
 #timer {
   width: 120px;
-  height: 50px;
-  margin: 0 5px;
-  margin-bottom: 10px;
-  padding: 10px 0;
+  height: 60px;
+  margin: auto;
 }
-
 
 /* Modal win message*/
 #modal {
@@ -458,8 +460,8 @@ nav {
   border: 5px solid #20b2aa;
   border-radius: 25px;
   padding: 0.7em 0 0 0;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
 /*CardBack*/
@@ -467,9 +469,105 @@ nav {
   border: 5px solid #fff5ee;
   border-radius: 25px;
   padding: 0.7em 0 0 0;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
+
+/*Grid parameters*/
+#game {
+  font-size: 2.5em;
+  display: grid;
+  margin: auto;
+  grid-gap: 5px;
+  grid-template-columns: repeat( 4, 120px);
+  grid-template-rows: repeat( 4, 120px);
+  grid-template-areas: "one two three four"
+                        "five six seven eight"
+                        "nine ten eleven twelve"
+                        "thirteen fourteen fifteen sixteen";
+}
+
+}
+
+@media screen and (min-width: 1500px) {
+  body {
+     width: 100%;
+  }
+
+  header {
+    margin: 0;
+  }
+
+  nav {
+    justify-content: space-between;
+    width: 550px;
+    height: 60px;
+    margin: auto;
+  }
+
+  .newGame {
+    border: 2px solid #fff5ee;
+    border-radius: 25px;
+    width: 80px;
+    height: 50px;
+    margin: 0 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 1em;
+  }
+
+  #rating {
+    width: 80px;
+    height: 50px;
+    margin: 0 5px;
+    margin-bottom: 10px;
+    padding: 10px 5px;
+  }
+
+  #moves {
+    width: 120px;
+    height: 50px;
+    margin: 0 5px;
+    margin-bottom: 10px;
+    padding: 10px 0;
+  }
+
+  #timer {
+    width: 120px;
+    height: 50px;
+    margin: 0 5px;
+    margin-bottom: 10px;
+    padding: 10px 0;
+  }
+
+  /* Modal win message*/
+  #modal {
+    width: 400px;
+    height: 350px;
+    position: absolute;
+    top: 20%;
+    left: 37%;
+    font-size: 2.2em;
+    border-radius: 25px;
+  }
+
+  /*CardFront*/
+  .front {
+    border: 5px solid #20b2aa;
+    border-radius: 25px;
+    padding: 0.7em 0 0 0;
+    width: 150px;
+    height: 150px;
+  }
+
+  /*CardBack*/
+  .back {
+    border: 5px solid #fff5ee;
+    border-radius: 25px;
+    padding: 0.7em 0 0 0;
+    width: 150px;
+    height: 150px;
+  }
 
 /*Grid parameters*/
 #game {
@@ -483,6 +581,5 @@ nav {
                         "five six seven eight"
                         "nine ten eleven twelve"
                         "thirteen fourteen fifteen sixteen";
- }
-
+}
 }
