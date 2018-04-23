@@ -1,16 +1,16 @@
-Memory game
+## Memory game
 
 A classic pair matching game build with CSS3, HTML5 and Javascript
 
-How to play:
+_How to play:_
 Find all pairs in less time and with less moves.
 
-Note: 
+_Note:_ 
 Only two card can be turned face up at a time.
 
-Play here: https://lenuza.github.io/Memory_game/
+_Play here:_ https://lenuza.github.io/Memory_game/
 
-## Code Dependencies
+# Code Dependencies
 
 The app is built with the following code dependencies:
 
