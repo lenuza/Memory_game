@@ -12,7 +12,6 @@ let doubledCards = cards.concat(cards);
 let win = [];
 let cardMatch = [];
 let y = [];
-let clicks = 0;
 let startTime, currentTime, minutes, seconds, interval;
 const newGame = document.getElementsByClassName("newGame");
 const backSides = document.getElementsByClassName("back");
@@ -73,8 +72,8 @@ function startNewGame() {
   /* Shuffle cards*/
   cards = shuffleArray(cards);
   /*Clear previous results*/
-  clicks = 0;
-  game.ui.moves.textContent = "moves " + clicks;
+  game.moves = 0;
+  game.ui.moves.textContent = "moves " + game.moves;
   modal.style.display = "none";
   document.getElementById("results").innerHTML = "";
   cardMatch = [];
@@ -111,14 +110,14 @@ function flipCard(i) {
   frontSides[i].style.transform = "rotateY(0deg)";
 
   /* Counting clicks*/
-  clicks++;
-  game.ui.moves.textContent = "moves = " + clicks;
+  game.moves += 1;
+  game.ui.moves.textContent = "moves = " + game.moves;
 
   /*Star rating depending on clicks*/
-  if (clicks === 25) {
+  if (game.moves === 25) {
     document.querySelector(".starThree").classList.remove("fa-star");
   }
-  if (clicks === 45) {
+  if (game.moves === 45) {
     document.querySelector(".starTwo").classList.remove("fa-star");
   };
 
@@ -164,7 +163,7 @@ function flipCard(i) {
   if (win.length === 8) {
     document.getElementById("results").innerHTML =
       ` You did it!
-   With ${clicks} moves.
+   With ${game.moves} moves.
    In ${minutes}min ${seconds}sec
    ${game.ui.stars.innerHTML}`;
     modal.style.display = "block";
