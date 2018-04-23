@@ -1,4 +1,3 @@
-
 let cards = ["fas fa-anchor",
   "fas fa-binoculars",
   "fas fa-bell",
@@ -7,25 +6,27 @@ let cards = ["fas fa-anchor",
   "fas fa-cloud",
   "fas fa-coffee",
   "far fa-life-ring",
-  "fas fa-anchor",
-  "fas fa-binoculars",
-  "fas fa-bell",
-  "fas fa-globe",
-  "fas fa-ship",
-  "fas fa-cloud",
-  "fas fa-coffee",
-  "far fa-life-ring"
 ];
 
+let doubledCards = cards.concat(cards);
 let win = [];
 let cardMatch = [];
 let y = [];
 let clicks = 0;
 let startTime, currentTime, minutes, seconds, interval;
-const starRating = document.getElementById("rating");
 const newGame = document.getElementsByClassName("newGame");
 const backSides = document.getElementsByClassName("back");
 const frontSides = document.getElementsByClassName("front");
+
+const game = {
+  stars: 0,
+  moves: 0,
+  timer: 0,
+}
+game.ui = {};
+game.ui.stars = document.getElementById("rating");
+game.ui.moves = document.getElementById("moves");
+game.ui.timer = document.getElementById("timer");
 
 /*Shuffle cards*/
 /*
@@ -42,12 +43,12 @@ function shuffleArray(array) {
 }
 
 /*Assigning card classes at beginning of game*/
-cards = shuffleArray(cards);
+doubledCards = shuffleArray(doubledCards);
 
 document.addEventListener("load", function() {
 
   for (let i = 0; i < frontSides.length; i++) {
-    frontSides[i].className += " " + cards[i];
+    frontSides[i].className += " " + doubledCards[i];
   };
 }, true);
 
@@ -64,7 +65,7 @@ function startNewGame() {
     backSides[i].style.transform = "rotateY(0deg)";
     frontSides[i].style.transform = "rotateY(-180deg)";
     /* Assign new  fa class*/
-    frontSides[i].className += " " + cards[i];
+    frontSides[i].className += " " + doubledCards[i];
   }
   /*Add back the star rating classes*/
   document.querySelector(".starThree").classList.add("fa-star");
@@ -73,7 +74,7 @@ function startNewGame() {
   cards = shuffleArray(cards);
   /*Clear previous results*/
   clicks = 0;
-  document.getElementById("moves").textContent = "moves " + clicks;
+  game.ui.moves.textContent = "moves " + clicks;
   modal.style.display = "none";
   document.getElementById("results").innerHTML = "";
   cardMatch = [];
@@ -94,7 +95,7 @@ function startCount() {
     const distance = currentTime - startTime;
     minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
+    game.ui.timer.innerHTML = minutes + "m " + seconds + "s ";
   }, 1000); // The interval function updates the count every 1 second
 }
 
@@ -111,13 +112,13 @@ function flipCard(i) {
 
   /* Counting clicks*/
   clicks++;
-  document.getElementById("moves").textContent = "moves = " + clicks;
+  game.ui.moves.textContent = "moves = " + clicks;
 
   /*Star rating depending on clicks*/
-  if (clicks === 15) {
+  if (clicks === 25) {
     document.querySelector(".starThree").classList.remove("fa-star");
   }
-  if (clicks === 25) {
+  if (clicks === 45) {
     document.querySelector(".starTwo").classList.remove("fa-star");
   };
 
@@ -126,7 +127,7 @@ function flipCard(i) {
   cardMatch.push(halfMatch);
 
   if (cardMatch.length === 2) {
-   for (let i = 0; i < backSides.length; i++) {
+    for (let i = 0; i < backSides.length; i++) {
       let x = y[i];
       backSides[i].removeEventListener("click", x);
     };
@@ -165,10 +166,9 @@ function flipCard(i) {
       ` You did it!
    With ${clicks} moves.
    In ${minutes}min ${seconds}sec
-   ${starRating.outerHTML}`;
+   ${game.ui.stars.innerHTML}`;
     modal.style.display = "block";
     clearInterval(interval);
-
   }
 
 }
